@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: my-nightscout-on-render
+    env: node
+    region: frankfurt
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /
+    envVars:
+      - key: INSECURE_USE_HTTP
+        value: true
+      - key: HOSTNAME
+        value: "0.0.0.0"
+      - key: PORT
+        value: "1337"
